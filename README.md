@@ -1,60 +1,58 @@
 ```markdown
 # Aigeon AI Google Videos API
 
-Aigeon AI Google Videos API is a Python-based server application designed to facilitate video searches using the Google Videos API. This application leverages the SerpAPI to provide structured video search results, including video titles, links, thumbnails, and durations. The server is built on the FastMCP framework, ensuring efficient and scalable handling of search requests.
+## Project Description
+
+The Aigeon AI Google Videos API is a server application designed to interact with the Google Videos search engine through the SerpAPI. This application provides a robust interface for querying video search results with various customizable parameters, delivering structured data that includes video titles, links, thumbnails, and durations.
 
 ## Features Overview
 
-- **Google Videos Search**: Perform video searches using Google's video search engine with support for advanced query syntax.
-- **Location-Based Searches**: Customize search results based on geographical location.
-- **Language and Domain Customization**: Specify language and Google domain preferences for tailored search results.
-- **Advanced Search Parameters**: Utilize advanced search filters such as date and duration.
-- **Safe Search Filtering**: Control the inclusion of adult content in search results.
-- **Pagination and Result Limiting**: Manage the number of results and pagination for efficient data handling.
-- **Device Type Specification**: Simulate searches from different device types like desktop, tablet, or mobile.
-- **Cache Control**: Enable or disable caching for search results.
-- **Asynchronous Search Mode**: Option to perform searches asynchronously for enhanced performance.
+- **Customizable Search Queries**: Supports advanced search syntax and various parameters to refine video search results.
+- **Geolocation Support**: Allows searches to be tailored to specific geographic locations.
+- **Language and Domain Customization**: Provides options to specify language and Google domain for search results.
+- **Safe Search and Filtering**: Includes options for safe search filtering and result filtering.
+- **Pagination and Result Control**: Offers control over the number of results and pagination.
+- **Device Type Specification**: Allows specifying the device type for search results.
+- **Cache Management**: Options to enable or disable caching of results.
+- **Asynchronous Search**: Supports asynchronous search operations.
 
 ## Main Features and Functionality
 
-The core functionality of the Aigeon AI Google Videos API is encapsulated in the `search_videos` function. This function is exposed as a tool through the FastMCP server, allowing clients to perform video searches with a wide array of customizable parameters. The function constructs a request payload based on user inputs and sends it to the SerpAPI endpoint to retrieve search results.
+The Aigeon AI Google Videos API is built using the FastMCP server framework, leveraging the SerpAPI to perform video searches on Google. The application is designed to be flexible and efficient, allowing users to tailor their search queries with a wide range of parameters:
 
-### Key Functionalities:
+- **Search Customization**: Users can input search queries with advanced syntax such as `inurl:`, `site:`, `intitle:`, etc., to refine their search results.
+- **Location and Language Options**: The application supports specifying a location (city-level precision) and language settings to customize search results based on geographical and linguistic preferences.
+- **Search Filters**: Users can apply filters for safe search, language restrictions, and advanced search parameters like date or duration filters.
+- **Result Management**: The application provides options to control the number of results returned, pagination, and whether to exclude spelling correction results.
+- **Device and Cache Control**: Users can specify the device type (desktop, tablet, mobile) and manage caching preferences to optimize search performance.
+- **Asynchronous Mode**: For advanced users, the application supports asynchronous search operations, which can be useful for large-scale or delayed result retrieval.
 
-- **Search Query**: Accepts a search query string that supports advanced Google search syntax.
-- **Location and Language**: Allows specifying a location and language for localized search results.
-- **Advanced Filters**: Supports additional filters such as safe search, language restriction, and search result filtering.
-- **Pagination**: Provides options for result pagination and limiting the number of returned results.
-- **Device Emulation**: Simulates searches from different device types to mimic various user environments.
-- **Cache Management**: Offers control over caching behavior to ensure fresh results when needed.
-- **Asynchronous Execution**: Supports asynchronous search execution for improved performance in certain scenarios.
-
-## API Endpoints or Main Functions Description
+## Main Functions Description
 
 ### `search_videos`
 
-This is the primary function of the application, designed to interact with the Google Videos API via SerpAPI. It accepts several parameters to customize the search:
+This is the core function of the application, responsible for performing video searches using the Google Videos API via SerpAPI. It accepts a variety of parameters to customize the search:
 
-- **q**: The search query string, supporting advanced syntax like `inurl:`, `site:`, `intitle:`, etc.
-- **location**: Geographical location for the search, specified at a city level (e.g., 'Austin, TX').
-- **uule**: Google encoded location, mutually exclusive with `location`.
-- **google_domain**: The Google domain to use, defaulting to 'google.com'.
-- **gl**: Country code for the search (e.g., 'us' for the United States).
-- **hl**: Language code for the search (e.g., 'en' for English).
-- **lr**: Restricts search to specific languages (e.g., 'lang_fr|lang_de').
-- **tbs**: Advanced search parameters for filtering by date, duration, etc.
-- **safe**: Safe search filter, either 'active' or 'off'.
-- **nfpr**: Excludes spelling correction results (1 for yes, 0 for no).
-- **filter**: Enables or disables result filtering (1 for enabled, 0 for disabled).
-- **start**: Pagination offset (e.g., 0 for the first page, 10 for the second page).
-- **num**: Number of results to return, ranging from 10 to 100.
-- **device**: Device type for the search ('desktop', 'tablet', or 'mobile').
-- **no_cache**: Disables caching if set to `True`.
-- **async_mode**: Enables asynchronous result fetching if set to `True`.
+- **`q`**: The search query string, supporting advanced syntax for refined searches.
+- **`location`**: Specifies the geographic location for the search, enhancing relevance based on user location.
+- **`uule`**: An encoded geographic location, mutually exclusive with `location`.
+- **`google_domain`**: The Google domain to use for the search, defaulting to `google.com`.
+- **`gl`**: Country code for the search, defaulting to `us`.
+- **`hl`**: Language code for the search, defaulting to `en`.
+- **`lr`**: Language restriction for the search results.
+- **`tbs`**: Advanced search parameters for filtering by date or duration.
+- **`safe`**: Safe search filter, with options for active or off.
+- **`nfpr`**: Option to exclude spelling correction results.
+- **`filter`**: Result filtering toggle.
+- **`start`**: Pagination offset for results.
+- **`num`**: Number of results to return, ranging from 10 to 100.
+- **`device`**: Device type for the search, defaulting to `desktop`.
+- **`no_cache`**: Toggle for disabling cache.
+- **`async_mode`**: Toggle for asynchronous result retrieval.
 
-The function returns structured JSON data containing video search results, which include video titles, links, thumbnails, and durations.
+The function constructs a request payload with the provided parameters, sends a request to the SerpAPI, and returns the structured JSON response containing video search results.
 
 ---
 
-This README provides a comprehensive overview of the Aigeon AI Google Videos API, detailing its features, functionalities, and the main search function. The application is designed to be flexible and efficient, catering to various search needs through customizable parameters.
+This README provides a comprehensive overview of the Aigeon AI Google Videos API, detailing its capabilities and the flexibility it offers for video search operations. The application is designed to be a powerful tool for developers and users seeking to harness the power of Google's video search capabilities in a customizable and efficient manner.
 ```
